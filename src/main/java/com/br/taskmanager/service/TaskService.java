@@ -1,7 +1,9 @@
 package com.br.taskmanager.service;
 
 import com.br.taskmanager.model.Task;
+import com.br.taskmanager.model.User;
 import com.br.taskmanager.repository.TaskRepository;
+import com.br.taskmanager.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,7 @@ public class TaskService {
     //regra de negocio, aqui vamos puxar os dados do banco, sobre as task
     @Autowired
     private TaskRepository taskRepository;
-
-    public List<Task>FindAll(Task task){
+    public List<Task>FindAll(){
         return taskRepository.findAll();
     }
     public Optional<Task>FindById(Long id){
@@ -26,5 +27,6 @@ public class TaskService {
     public void DeleteTask(Long id){
         taskRepository.deleteById(id);
     }
-    
+
+
 }
